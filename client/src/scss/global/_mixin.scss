@@ -1,0 +1,26 @@
+@mixin flex ($direction: row, $justify: center, $align: center, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin gradient-border($color1, $color2, $bgColor, $borderWidth: 1px, $borderStyle: solid, $borderRadius: 16px) {
+    position: relative;
+    z-index: 1;
+    border-radius: $borderRadius;
+    background: linear-gradient(155deg, $color1 30%, $color2);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: $borderWidth;
+        right: $borderWidth;
+        bottom: $borderWidth;
+        left: $borderWidth;
+        background: $bgColor;
+        border-radius: $borderRadius;
+        z-index: -1;
+    }
+}

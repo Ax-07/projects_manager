@@ -1,0 +1,146 @@
+// _mixins.scss
+
+@mixin font-logo {
+    min-width: fit-content;
+    font-family: "Alex Brush", cursive;
+    font-size: 64px;
+    font-weight: 700;
+    color: #fff;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 52px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 40px;
+    }
+}
+
+@mixin font-nav-link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 18px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 16px;
+    }
+}
+
+@mixin font-section-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: #fff;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 54px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 44px;
+    }
+}
+
+@mixin font-section-subtitle {
+    font-size: 48px;
+    font-weight: 600;
+    color: #d9d9d9;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 38px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 28px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@mixin font-section-subtitle-darken {
+    font-size: 48px;
+    font-weight: 600;
+    color: #999;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 38px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 28px;
+        width: 100%;
+    }
+}
+
+@mixin font-section-description {
+    font-size: 28px;
+    font-weight: 500;
+    color: #999;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 24px;
+    }
+    @media screen and (max-width: $media-query-small) {
+        font-size: 20px;
+    }
+
+}
+
+@mixin font-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #d9d9d9;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width: $media-query-small) {
+        font-size: 24px;
+    }
+}
+
+@mixin font-sub-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #999;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: $media-query-small) {
+        font-size: 18px;
+    }
+}
+
+@mixin font-description {
+    font-size: 20px;
+    font-weight: 500;
+    color: #999;
+
+    @media screen and (max-width: $media-query-medium) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: $media-query-small) {
+        font-size: 16px;
+    }
+}
+
+@mixin font-description-small {
+    font-size: 18px;
+    font-weight: 500;
+    color: #999;
+}
+
+@mixin font-services-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+@mixin font-services-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #999;
+}

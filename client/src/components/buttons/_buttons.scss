@@ -1,0 +1,27 @@
+.button {
+    padding: 18px 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &__primary {
+        background: $color-ligth;
+        color: $text-color;
+        border: 1px solid $primary-color;
+        padding: 19px 32px;
+
+        &:hover {
+            color: $text-color;
+        }
+    }
+
+    &__secondary {
+        background: transparent;
+        color: $color-ligth;
+        border: 1px solid $color-ligth;
+
+        &:hover {
+            color: $text-color;
+        }
+    }
+}

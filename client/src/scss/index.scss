@@ -1,0 +1,16 @@
+
+@import './global/mixin-fonts.scss';
+@import './global/mixin.scss';
+@import './global/variables.scss';
+@import './global/fonts.scss';
+@import './global/reset.scss';
+
+@import '../components/buttons/buttons.scss';
+@import '../components/navbar/navbar.scss';
+@import '../components/sidenav/sidenav.scss';
+
+@import '../layouts/header/header.scss';
+@import '../layouts/hero/hero.scss';
+@import '../layouts/dashboard/dashboard.scss';
+
+@import '../pages/home/home.scss';

@@ -1,0 +1,16 @@
+.dashboard {
+    position: relative;
+    @include flex(row, center, flex-start);
+    width: 100%;
+    flex: 1;
+    
+    &__content {
+        width: 100%;
+        margin-left: 305px;
+        transition: margin-left 0.3s linear;
+
+        &--full-width {
+            margin-left: 70px;
+        }
+    }
+}

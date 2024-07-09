@@ -1,0 +1,32 @@
+.sidenav {
+    position: fixed;
+    left: 0;
+    @include flex(column, flex-start, flex-start);
+    width: 305px;
+    height: 100%;
+    padding: 20px 30px;
+    color: white;
+    background: $bg-linear-gradient;
+    transition: transform 0.3s linear;
+
+    &--close {
+        transform: translateX(-235px);
+    }
+
+    &__btn-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        @include flex(row, center, center);
+        width: 32px;
+        height: 32px;
+        border: 1px solid #fff;
+        border-radius: 6px;
+        background: $bg-linear-gradient;
+        transition: transform 0.3s linear;
+
+        &--active {
+            transform: rotate(90deg);
+        }
+    }
+}

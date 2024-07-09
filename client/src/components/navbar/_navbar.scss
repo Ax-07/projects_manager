@@ -1,0 +1,12 @@
+.nav {
+    @include flex(row, flex-end, center, 20px);
+    @include font-nav-link;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+
+    &-list {
+        @include flex(row, space-between, flex-end, 20px);
+        padding: 0;
+    }
+}

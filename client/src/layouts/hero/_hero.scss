@@ -1,0 +1,41 @@
+.hero {
+    @include flex(row, center, center);
+    width: 100%;
+    height: 750px;
+    background: $bg-linear-gradient;
+    margin-bottom: $header-height;
+
+    &__wrapper {
+        @include flex(row, center, center);
+        width: 100%;
+        height: 100%;
+    max-width: 1920px;
+    }
+
+    &__col {
+        @include flex(column, flex-start, center);
+        &-left {
+            @include flex(column, center, flex-start, 20px);
+            flex: 1;
+            height: 100%;
+            padding: 0 30px 0 80px;
+        }
+        &-right {
+            position: relative;
+            @include flex(column, center, center);
+            height: 100%;
+            padding: 0 40px;
+
+            > img:nth-last-child(1) {
+                position: absolute;
+                top: 80px;
+            }
+        }
+    }
+
+    &__cta {
+        @include flex(row, flex-start, center, 20px);
+        width: 100%;
+        padding: 20px 0;
+    }
+}

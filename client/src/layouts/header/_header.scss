@@ -1,0 +1,29 @@
+.header {
+    position: fixed;
+    z-index: 2;
+    @include flex(row, center, center);
+    width: 100%;
+    height: $header-height;
+    padding: 0 80px;
+    background: $bg-linear-gradient;
+
+    &__logo {
+        @include flex(row, center, center, 20px);
+        height: 100%;
+        padding: 0 20px;
+
+        &-link {
+            @include flex(row,center, flex-end);
+            font-size: 32px;
+            line-height: 40px;
+            font-weight: 700;
+
+            > p {
+                margin-left: 10px;
+                font-size: 24px;
+                line-height: 32px;
+                font-weight: 400;
+            }
+        }
+    }
+}
