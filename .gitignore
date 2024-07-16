@@ -23,3 +23,4 @@ ressources
 *.njsproj
 *.sln
 *.sw?
+server/.env
