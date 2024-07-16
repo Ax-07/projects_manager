@@ -1,5 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
     const Specification = sequelize.define('Specification', {
+        specification_id: {
+            type: DataTypes.UUID,
+            primaryKey: true,
+            allowNull: false
+        },
+        projet_id: {
+            type: DataTypes.UUID,
+            allowNull: true
+        },
         introduction: {
             type: DataTypes.JSON,
             allowNull: false,
@@ -45,18 +54,13 @@ module.exports = (sequelize, DataTypes) => {
                 interfaces_utilisateur: {},
                 scenarios_d_utilisation: []
             }
-        }
+        },
+
     }, {
         timestamps: true,
-        underscored: true
+        underscored: true,
+        tableName: 'specifications' // Définir explicitement le nom de la table ici
     });
-
-    Specification.associate = (models) => {
-        Specification.hasMany(models.Projet, {
-            foreignKey: 'specification_id',
-            as: 'projets'
-        });
-    };
 
     return Specification;
 };

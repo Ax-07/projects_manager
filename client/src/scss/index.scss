@@ -5,12 +5,19 @@
 @import './global/fonts.scss';
 @import './global/reset.scss';
 
+@import '../components/section/section.scss';
 @import '../components/buttons/buttons.scss';
 @import '../components/navbar/navbar.scss';
 @import '../components/sidenav/sidenav.scss';
+@import '../components/accordion/accordion.scss';
+@import '../components/progressBar/progressBar.scss';
+@import '../components/section/section.scss';
 
 @import '../layouts/header/header.scss';
 @import '../layouts/hero/hero.scss';
 @import '../layouts/dashboard/dashboard.scss';
+@import '../layouts/dashboard/spec/spec.scss';
+@import '../layouts/dashboard/projects/projects.scss';
+@import '../layouts/form/form.scss';
 
 @import '../pages/home/home.scss';

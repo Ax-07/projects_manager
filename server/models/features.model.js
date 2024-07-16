@@ -1,5 +1,13 @@
+const db = require('./index');
+
 module.exports = (sequelize, DataTypes) => {
     const Feature = sequelize.define('Feature', {
+        feature_id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -17,11 +25,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         specification_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
-                tableName: 'Specification',
-                key: 'id'
+                tableName: 'specifications', // Utilise le nom de la table Specification
+                key: 'specification_id'
             }
         }
     }, {
@@ -32,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     Feature.associate = (models) => {
         Feature.belongsTo(models.Specification, {
             foreignKey: 'specification_id',
-            as: 'specificationFeature' // Changed to 'specificationFeature' to ensure unique alias
+            as: 'specificationFeature'
         });
     };
 

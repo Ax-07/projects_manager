@@ -1,18 +1,51 @@
 const db = require('../models');
-const Specification = db.Specification; 
+const { v4: uuidv4 } = require('uuid');
+const { createSpec, updateSpec } = require('./specBuilder.controller');
+const Specification = db.Specification;
 const Projet = db.Projet;
 
 module.exports.createProjet = async (req, res) => {
-    const { name, description, priority, status, specification_id } = req.body;
-    console.log('Specification: ', Specification); console.log('Projet: ', Projet);
+    const { name, description, priority, status, specification_id, create_spec } = req.body;
+    console.log('Specification: ', Specification);
+    console.log('Projet: ', Projet);
+    console.log('create_spec', create_spec);
+
+    let specId = specification_id;
+    let response = null;
+    let projet_id = null;
+    // const projet_id = uuidv4();
+
     try {
+
+        projet_id = uuidv4();
+        specId = uuidv4();
+
         const projet = await Projet.create({
+            projet_id,
             name,
             description,
             priority,
             status,
-            specification_id: specification_id || null
+            specification_id: specId
         });
+
+        // Si `create_spec` est vrai, créez une spécification d'abord
+        if (create_spec) {
+            console.log('Creating specification...');
+            response = await createSpec({projet_id: projet_id, specification_id: specId, message: description });
+            console.log('Specification created with ID:', specId);
+        }
+
+        // Créez le projet avec l'ID de la spécification (le cas échéant)
+        console.log('Creating project...');
+        console.log('name:', name);
+        console.log('description:', description);
+        console.log('priority:', priority);
+        console.log('status:', status);
+        console.log('specification_id:', specId);
+        
+
+
         res.status(201).json(projet);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -55,10 +88,11 @@ module.exports.updateProjet = async (req, res) => {
                 projet.specification_id = specification_id;
             }
 
-            projet.name = name;
-            projet.description = description;
-            projet.priority = priority;
-            projet.status = status;
+            // Mettez à jour uniquement les champs non nuls
+            if (name !== undefined) projet.name = name;
+            if (description !== undefined) projet.description = description;
+            if (priority !== undefined) projet.priority = priority;
+            if (status !== undefined) projet.status = status;
 
             await projet.save();
             res.status(200).json({ message: 'Data successfully updated.', data: projet });

@@ -1,0 +1,29 @@
+.form {
+    @include flex(column, center, center, 20px);
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto;
+
+    > h1 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+     > div {
+        @include flex(column, center, flex-start);
+        width: 100%;
+
+        > label {
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        > input, textarea, select {
+            width: 100%;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+    }
+}

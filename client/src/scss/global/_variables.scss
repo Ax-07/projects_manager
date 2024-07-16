@@ -1,17 +1,25 @@
 // Définition des variables de couleur
 $primary-color: #091C49; // Couleur principale
-$primary-color-ligth: #B8E0FF; // Couleur principale
+$primary-color-ligth: #2563EB; // Couleur principale
 $secondary-color: #1D6FAB; // Couleur secondaire
 $accent-color: #f26405; // Couleur d'accentuation
 $text-color: #222; // Couleur du texte
 $color-grey: #ccc; // Couleur grise
 $color-ligth: #ffffff; // Couleur claire
+$color-black: #000; // Couleur noire
+$color-white: #fff; // Couleur blanche
+$color-danger: #ff0000; // Couleur de danger
+$color-success: #10B981; // Couleur de succès
 
-$header-height: 90px;
+$header-height: 60px;
 $footer-height: 90px;
 $sideNav-height: 27px;
 
 $bg-linear-gradient: linear-gradient(108deg, #091C49, #111827);
+$bg-linear-gradient-light: linear-gradient(108deg, #2563EB, #111827);
+
+$btn-linear-gradient: linear-gradient(108deg, #091C49, #111827) padding-box, linear-gradient(108deg, #091C49, #111827) border-box;
+$btn-linear-gradient-light: linear-gradient(-6deg, #2563EB, #111827) padding-box, linear-gradient(108deg, #2563EB, #111827) border-box;
 
 
 $media-query-small: 425px;

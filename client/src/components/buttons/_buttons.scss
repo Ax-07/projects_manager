@@ -25,3 +25,37 @@
         }
     }
 }
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &__show {
+        position: relative;
+        background: $btn-linear-gradient-light;
+        color: #fff;
+        border: 2px solid transparent;
+        border-radius: 16px;
+        padding: 8px 12px;
+
+        &-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            // @include flex(row, center, center);
+            width: 16px;
+            height: 16px;
+            padding: 4px;
+            background: $btn-linear-gradient-light;
+            border: 2px solid transparent;
+            border-radius: 50%;
+        }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

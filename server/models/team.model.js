@@ -1,5 +1,13 @@
+const db = require('./index');
+
 module.exports = (sequelize, DataTypes) => {
     const Team = sequelize.define('Team', {
+        team_id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -12,13 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true,
         underscored: true
     });
-
-    Team.associate = (models) => {
-        Team.hasMany(models.User, {
-            foreignKey: 'team_id',
-            as: 'members'
-        });
-    };
 
     return Team;
 };

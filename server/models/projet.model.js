@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
     const Projet = sequelize.define('Projet', {
+        projet_id: {
+            type: DataTypes.UUID,
+            primaryKey: true,
+            allowNull: false
+        },
         name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -14,34 +19,26 @@ module.exports = (sequelize, DataTypes) => {
         },
         status: {
             type: DataTypes.ENUM('todo', 'in_progress', 'done'),
+            defaultValue: 'todo',
             allowNull: true
         },
         specification_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
+            allowNull: false,
+        },
+        team_id: {
+            type: DataTypes.UUID,
             allowNull: true,
-            references: {
-                tableName: 'specification',
-                key: 'id',
-                onDelete: 'SET NULL',
-                onUpdate: 'CASCADE'
-            }
-        }
+        }, 
+        progress: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            allowNull: true,
+        },
     }, {
         timestamps: true,
-        underscored: true
+        underscored: true,
     });
-
-    Projet.associate = async (models) => {
-        console.log('Projet model associations', models);
-        await Projet.hasOne(models.Backlog, {
-            foreignKey: 'projet_id',
-            as: 'backlog' // Changed to 'backlog' to ensure unique alias
-        });
-        await Projet.belongsTo(models.Specification, {
-            foreignKey: 'specification_id',
-            as: 'specification' // Changed to 'specification' to ensure unique alias
-        });
-    };
 
     return Projet;
 };

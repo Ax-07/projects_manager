@@ -10,7 +10,7 @@ export const projetsApi = createApi({
             providesTags: ["Projet"],
         }),
         getProjetById: builder.query({
-            query: (id) => `projet/${id}`,
+            query: (id) => `/${id}`,
             providesTags: ["Projet"],
         }),
         addProjet: builder.mutation({
@@ -23,15 +23,15 @@ export const projetsApi = createApi({
         }),
         updateProjet: builder.mutation({
             query: ({ id, ...projet }) => ({
-                url: `projet/${id}`,
-                method: "PUT",
+                url: `/${id}`,
+                method: "PATCH",
                 body: projet,
             }),
             invalidatesTags: ["Projet"],
         }),
         deleteProjet: builder.mutation({
             query: (id) => ({
-                url: `projet/${id}`,
+                url: `/${id}`,
                 method: "DELETE",
             }),
             invalidatesTags: ["Projet"],

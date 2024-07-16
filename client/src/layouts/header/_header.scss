@@ -4,7 +4,7 @@
     @include flex(row, center, center);
     width: 100%;
     height: $header-height;
-    padding: 0 80px;
+    padding: 0 0px;
     background: $bg-linear-gradient;
 
     &__logo {

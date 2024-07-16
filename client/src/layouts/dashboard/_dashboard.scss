@@ -5,7 +5,9 @@
     flex: 1;
     
     &__content {
+        @include flex(column, flex-start, flex-start);
         width: 100%;
+        padding: 50px 100px;
         margin-left: 305px;
         transition: margin-left 0.3s linear;
 

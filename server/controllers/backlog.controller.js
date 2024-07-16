@@ -9,8 +9,7 @@ const openai = new OpenAI({
     organization: process.env.OPENAI_ORGANIZATION, // ID de l'organisation
     project: process.env.OPENAI_PROJECT // ID du projet
 });
-const assistantId = "asst_t2MkJK5Entk84NcDbWV7AiJ8"; // specbuilder 4
-const specFeatures = "asst_Zlo51arDUEfmSjlyBC1yxgDn"; 
+
 
 module.exports.createBacklog = async (req, res) => {
     const { id } = req.params;
@@ -27,7 +26,7 @@ module.exports.createBacklog = async (req, res) => {
             return res.status(404).json({ message: 'Projet not found.' });
         }
 
-        const myAssistant = await openai.beta.assistants.retrieve(specFeatures);
+        const myAssistant = await openai.beta.assistants.retrieve(process.env.BACKLOG_ASSISTANT);
         const thread = await openai.beta.threads.create();
         await openai.beta.threads.messages.create(thread.id, {
             role: "user",
@@ -45,32 +44,33 @@ module.exports.createBacklog = async (req, res) => {
                 // Remove backticks and clean the response data
                 responseData = responseData.replace(/```json\n/, '').replace(/```/, '');
                 const jsonResponse = JSON.parse(responseData);
-
+                console.log('JSON response:', jsonResponse);
                 // Save data to the database
                 try {
                     const backlog = await Backlog.create({
-                        projet_id: projet.id, // Associer le backlog au projet
+                        projet_id: projet.projet_id, // Associer le backlog au projet
                         specification_id: id // Associer le backlog à la spécification
                     });
 
                     // Create associated tickets
-                    const tickets = jsonResponse.tickets || [];
-                    for (const ticket of tickets) {
-                        await Ticket.create({
-                            titre: ticket.titre,
-                            description: ticket.description,
-                            priorite: ticket.priorite,
-                            estimation: ticket.estimation,
-                            equipe_responsable: ticket.equipe_responsable,
-                            user_story: ticket.user_story,
-                            score: ticket.score,
-                            dependances: ticket.dependances,
-                            risques_potentiels: ticket.risques_potentiels,
-                            ressources_necessaires: ticket.ressources_necessaires,
-                            statut: ticket.statut,
-                            backlog_id: backlog.id
-                        });
-                    }
+                    // const backlogs = jsonResponse.backlog || []; 
+                    // for (const ticket of backlogs) {
+                    //     console.log('Creating ticket:', ticket); // Log pour débogage
+                    //     await Ticket.create({
+                    //         titre: ticket.titre,
+                    //         description: ticket.description,
+                    //         priorite: ticket.priorité,
+                    //         estimation: ticket.estimation,
+                    //         equipe_responsable: ticket.équipe_responsable,
+                    //         user_story: ticket.histoire_utilisateur,
+                    //         score: ticket.score,
+                    //         dependances: ticket.dépendances,
+                    //         risques_potentiels: ticket.risques_potentiels,
+                    //         ressources_necessaires: ticket.ressources_necessaires,
+                    //         statut: ticket.statut,
+                    //         backlog_id: backlog.backlog_id
+                    //     });
+                    // }
 
                     res.status(200).json({ message: 'Data successfully saved to the database.', data: jsonResponse });
                 } catch (err) {

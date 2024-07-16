@@ -1,0 +1,158 @@
+{
+  "introduction": {
+    "vue_d'ensemble_du_projet": {
+      "nom_du_projet": "",
+      "tagline": "",
+      "description_du_projet": ".",
+      "historique_et_justification": ""
+    },
+    "objectifs_du_projet": {
+      "objectif_general": "",
+      "objectifs_specifiques": ["", "", "", ""]
+    }
+  },
+  "description_des_besoins": {
+    "besoins_fonctionnels": [
+      {
+        "fonctionnalite": "",
+        "description_detaillee": "",
+        "user_storie": "",
+        "technologie_recommandee": "",
+        "details_de_realisation": ["", "", ""]
+      },
+      {
+        "fonctionnalite": "",
+        "description_detaillee": "",
+        "user_storie": "",
+        "technologie_recommandee": "",
+        "details_de_realisation": ["", "", ""]
+      },
+      {
+        "fonctionnalite": "",
+        "description_detaillee": "",
+        "user_storie": "",
+        "technologie_recommandee": "",
+        "details_de_realisation": ["", "", ""]
+      },
+      {
+        "fonctionnalite": "",
+        "description_detaillee": "",
+        "user_storie": "",
+        "technologie_recommandee": "",
+        "details_de_realisation": ["", ""]
+      },
+      {
+        "fonctionnalite": "",
+        "description_detaillee": "",
+        "user_storie": "",
+        "technologie_recommandee": "",
+        "details_de_realisation": ["", ""]
+      }
+    ],
+    "besoins_non_fonctionnels": {
+      "performance": "",
+      "securite": "",
+      "fiabilite": "",
+      "utilisabilite": ""
+    },
+    "contraintes": {
+      "techniques": "",
+      "budgetaires": "",
+      "reglementaires": "",
+      "calendrier": ""
+    },
+    "cas_d_utilisation": [
+      {
+        "cas": ""
+      }
+    ]
+  },
+  "architecture_et_conception": {
+    "architecture_du_systeme": {
+      "composants_principaux": {
+        "frontend": "",
+        "backend": "",
+        "base_de_donnees": "",
+        "authentification": ""
+      },
+      "interaction_entre_les_composants": ["", "", ""]
+    },
+    "modele_de_donnees": {
+      "entites_principales": {
+        "utilisateur": ["", "", "", ""],
+        "rendez_vous": ["", "", "", "", "", ""],
+        "devis": ["", "", "", "", "", ""],
+        "service": ["", "", "", ""],
+        "temoignage": ["", "", "", "", ""]
+      },
+      "relations": ["", "", ""]
+    },
+    "interfaces_utilisateur": {
+      "maquettes": [
+        {
+          "page_accueil": ["", "", "", "", ""]
+        },
+        {
+          "page_services": ["", ""]
+        },
+        {
+          "page_prendre_rendez_vous": ["", "", ""]
+        },
+        {
+          "page_demande_devis": ["", "", ""]
+        },
+        {
+          "page_temoignages": ["", ""]
+        }
+      ]
+    },
+    "scenarios_d_utilisation": [
+      {
+        "scenario": ""
+      },
+      {
+        "scenario": ""
+      }
+    ]
+  }
+}
+// ajout a prevoir
+//   "contexte_et_justification": {
+//     "contexte": {
+//       "contexte_general": "",
+//       "contexte_specifique": ""
+//     },
+//     "justification": {
+//       "justification_du_projet": "",
+//       "benefices_attendus": ["", "", "", ""]
+//     }
+//   },
+    // "contexte_et_public_cible": {
+  //     "contexte": {
+  //         "secteur_activite": "",
+  //         "concurrents_principaux": [
+  //             "",
+  //             "",
+  //             ""
+  //         ],
+  //         "besoins_et_attentes": [
+  //             "",
+  //             "",
+  //             ""
+  //         ]
+  //     },
+  //     "public_cible": {
+  //         "description": "",
+  //         "caracteristiques_demographiques": {
+  //             "age": "",
+  //             "sexe": "",
+  //             "revenu": "",
+  //             "niveau_d'education": ""
+  //         },
+  //         "besoins_et_attentes": [
+  //             "",
+  //             "",
+  //             ""
+  //         ]
+  //     }
+  // },

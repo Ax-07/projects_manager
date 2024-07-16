@@ -1,5 +1,13 @@
+const db = require('./index');
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
+        user_id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
+        },
         username: {
             type: DataTypes.STRING,
             allowNull: false
@@ -17,24 +25,14 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         team_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: true,
-            references: {
-                tableName: 'Team',
-                key: 'id'
-            }
         }
     }, {
         timestamps: true,
         underscored: true
     });
-
-    User.associate = (models) => {
-        User.belongsTo(models.Team, {
-            foreignKey: 'team_id',
-            as: 'team'
-        });
-    };
+    
 
     return User;
 };

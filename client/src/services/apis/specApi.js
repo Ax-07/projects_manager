@@ -11,14 +11,18 @@ export const specApi = createApi({
             providesTags: ["Spec"],
         }),
         getSpecById: builder.query({
-            query: (id) => `/${id}`,
+            query: (specification_id) => `/${specification_id}`,
             providesTags: ["Spec"],
         }),
-        addSpec: builder.mutation({
-            query: (spec) => ({
+        getSpecByProjectId: builder.query({
+            query: (projet_id) => `/${projet_id}`,
+            providesTags: ["Spec"],
+        }),
+        createSpec: builder.mutation({
+            query: (body) => ({
                 url: "/",
                 method: "POST",
-                body: spec,
+                body
             }),
             invalidatesTags: ["Spec"],
         }),
@@ -42,4 +46,9 @@ export const specApi = createApi({
 
 export const {
     useGetSpecsQuery,
+    useGetSpecByIdQuery,
+    useGetSpecByProjectIdQuery,
+    useCreateSpecMutation,
+    useUpdateSpecMutation,
+    useDeleteSpecMutation,
 } = specApi;

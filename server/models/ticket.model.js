@@ -1,5 +1,13 @@
+const db = require('./index');
+
 module.exports = (sequelize, DataTypes) => {
     const Ticket = sequelize.define('Ticket', {
+        ticket_id: {
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true,
+            allowNull: false
+        },
         titre: {
             type: DataTypes.STRING,
             allowNull: false
@@ -44,12 +52,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('À faire', 'En cours', 'Terminé'),
             allowNull: false
         },
+        tasks: {
+            type: DataTypes.JSON,
+            allowNull: true
+        },
         backlog_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
-                tableName: 'Backlog',
-                key: 'id'
+                tableName: 'backlogs',
+                key: 'backlog_id'
             }
         }
     }, {
@@ -60,7 +72,7 @@ module.exports = (sequelize, DataTypes) => {
     Ticket.associate = (models) => {
         Ticket.belongsTo(models.Backlog, {
             foreignKey: 'backlog_id',
-            as: 'ticketBacklog' // Changed to 'ticketBacklog' to ensure unique alias
+            as: 'ticketBacklog'
         });
     };
 

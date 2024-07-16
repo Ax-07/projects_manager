@@ -1,0 +1,30 @@
+.project {
+    @include flex(column, center, center, 20px);
+
+    &__title {
+        @include font-section-title;
+        color: $color-black;
+        text-decoration: underline;
+        text-shadow: 4px 4px 10px rgba($color-black, 0.3);
+    }
+
+    &__card {
+        @include flex(column, flex-start, flex-start);
+        width: 100%;
+        padding: 10px;
+        justify-self: stretch;
+        border-bottom: 1px solid $color-grey;
+    }
+
+    &__name {
+        @include font-title;
+        color: $color-black;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 5px rgba($color-black, 0.3);
+    }
+
+    &__wrapper {
+        @include flex(row, center, center, 100px);
+        width: 100%;
+    }
+}
